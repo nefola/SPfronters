@@ -1,4 +1,3 @@
-
 var fronters;
 var frontMembers = [];
 var imbed;
@@ -52,10 +51,9 @@ function storeFronters(){
     console.log(this)
     //frontMembers = JSON.parse(this.responseText);
     frontMembers.push(JSON.parse(this.responseText));
-    makeFronterElements();
+    makeFronterElements(document.getElementById("SPF"));
 }
-imbed = document.getElementById("SKF");
-function makeFronterElements() {
+function makeFronterElements(imbed) {
     for (let i = 0; i < Object.keys(fronters).length; i++) {
 
         imbed.innerHTML += '<div class="mcont" "&' + frontMembers[i].content.name + '"><img class="favi" src="' + frontMembers[i].content.avatarUrl + '"><div class="fname">' + frontMembers[i].content.name + '</div><div class=fpro>' + frontMembers[i].content.pronouns + '</div></div>'
@@ -65,19 +63,8 @@ function makeFronterElements() {
     console.log("makingem")
 }
 
-
-
 getFronters();
 
 
 console.log(Object.keys(frontMembers).length)
-/*for (let i = 0; i < Object.keys(frontMembers).length; i++){
-    var displayMember = document.createElement("div")
-    displayMember.innerHTML = '<img class=favi src="' + frontMembers[i].content.avatarUrl + '"><div class=fname>' + frontMembers[i].content.name + '</div>'
-    document.getElementById("SKF").appendChild(displayMember);
-}*/
-
-
-
-
 
